@@ -744,11 +744,11 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     opts = {
-      transparent = true,
-      styles = {
-        sidebars = 'transparent',
-        floats = 'transparent',
-      },
+      transparent_background = true,
+      -- styles = {
+      --   sidebars = 'transparent',
+      --   floats = 'transparent',
+      -- },
       --- You can override specific color groups to use other groups or a hex color
       --- function will be called with a ColorScheme table
       ---@param colors ColorScheme
