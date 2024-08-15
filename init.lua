@@ -103,6 +103,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Make shift+enter a valid command??
+vim.keymap.set('n', '<S-CR>', '^[O2R')
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -540,7 +543,9 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-
+        texlab = {},
+        julials = {},
+        pylsp = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -713,7 +718,7 @@ require('lazy').setup({
           -- you can uncomment the following lines
           ['<Tab>'] = cmp.mapping.confirm { select = true },
           ['<CR>'] = cmp.mapping.select_next_item(),
-          ['<S-CR>'] = cmp.mapping.select_prev_item(),
+          ['<A-CR>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display

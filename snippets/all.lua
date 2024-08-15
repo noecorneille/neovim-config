@@ -27,14 +27,20 @@ local ms = ls.multi_snippet
 local k = require('luasnip.nodes.key_indexer').new_key
 
 return {
-  -- Automatically turns ff into \frac{#1}{#2}
-  s({ trig = '\\ff', dscr = "Expands 'ff' into '\frac{}{}'", snippetType = 'autosnippet' }, {
-    t '\\frac{',
-    i(1), -- insert node 1
-    t '}{',
-    i(2), -- insert node 2
-    t '}',
-  }),
+  s(
+    { trig = '\\snip', snippetType = 'autosnippet' },
+    fmt(
+      [=[
+    s(
+     {trig = ><, snippetType = 'autosnippet'},
+      ><
+     ),]=],
+      { i(1), i(2) },
+      { delimiters = '><' }
+    )
+  ),
+
+  -- Equation environments
   s(
     { trig = '\\eq', dscr = 'A LaTeX equation environment', snippetType = 'autosnippet' },
     fmt( -- The snippet code actually looks like the equation environment it produces.
@@ -50,6 +56,31 @@ return {
     )
   ),
   s(
+    { trig = '\\align', snippetType = 'autosnippet' },
+    fmt(
+      [[
+        \begin{align}
+            <>
+        \end{align}
+      ]],
+      { i(1) },
+      { delimiters = '<>' }
+    )
+  ),
+  s(
+    { trig = '\\*align', snippetType = 'autosnippet' },
+    fmt(
+      [[
+        \begin{align*}
+            <>
+        \end{align*}
+      ]],
+      { i(1) },
+      { delimiters = '<>' }
+    )
+  ),
+
+  s(
     { trig = '\\[', dscr = 'A LaTeX equation environment', snippetType = 'autosnippet' },
     fmt( -- The snippet code actually looks like the equation environment it produces.
       [[
@@ -63,6 +94,8 @@ return {
       { delimiters = '<>' }
     )
   ),
+
+  -- Begin environment
   s(
     { trig = '\\begin', snippetType = 'autosnippet' },
     fmta(
@@ -75,7 +108,34 @@ return {
         i(1),
         i(2),
         rep(1), -- this node repeats insert node i(1)
-      }
+      },
+      { delimiters = '<>' }
     )
   ),
+
+  -- "Autocorrect" type stuff
+  s({ trig = '\\ff', dscr = "Expands 'ff' into '\frac{}{}'", snippetType = 'autosnippet' }, {
+    t '\\frac{',
+    i(1), -- insert node 1
+    t '}{',
+    i(2), -- insert node 2
+    t '}',
+  }),
+
+  s({ trig = '<=', snippetType = 'autosnippet' }, { t '\\le' }),
+  s({ trig = '>=', snippetType = 'autosnippet' }, { t '\\ge' }),
+
+  s({ trig = '=>', snippetType = 'autosnippet' }, { t '\\Rightarrow' }),
+  s({ trig = '=<', snippetType = 'autosnippet' }, { t '\\Leftarrow' }),
+
+  s({ trig = '-->', snippetType = 'autosnippet' }, { t '\\xrightarrow{', i(1), t '}' }),
+  s({ trig = '--<', snippetType = 'autosnippet' }, { t '\\xleftarrow{', i(1), t '}' }),
+
+  s({ trig = '->', snippetType = 'autosnippet' }, { t '\\rightarrow' }),
+  s({ trig = '-<', snippetType = 'autosnippet' }, { t '\\leftarrow' }),
+
+  s({ trig = 'lr(', snippetType = 'autosnippet' }, { t '\\left(', i(1), t '\\right)' }),
+  s({ trig = 'lr[', snippetType = 'autosnippet' }, { t '\\left[', i(1), t '\\right]' }),
+  s({ trig = 'lr{', snippetType = 'autosnippet' }, { t '\\left\\{', i(1), t '\\right\\}' }),
+  s({ trig = 'lr<', snippetType = 'autosnippet' }, { t '\\left\\langle', i(1), t '\\right\\rangle' }),
 }
