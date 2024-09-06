@@ -150,13 +150,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	"peterbjorgensen/sved",
 	{
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX
 		-- tag = "v2.15", -- uncomment to pin to a specific release
 		init = function()
 			-- VimTeX configuration goes here, e.g.
-			-- vim.g.vimtex_view_method = 'zathura'
+			-- vim.g.vimtex_view_method = "zathura"
 			vim.g.vimtex_quickfix_enabled = 0
 		end,
 	},
