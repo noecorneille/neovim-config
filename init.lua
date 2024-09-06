@@ -918,5 +918,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd("CHADopen")
 	end,
 })
+
+vim.keymap.set("n", "<C-LeftMouse>", "<cmd>call SVED_Sync()<CR>")
+vim.keymap.set("n", "<C-s>", "<cmd>call SVED_Sync()<CR>")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
