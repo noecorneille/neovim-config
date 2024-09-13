@@ -89,6 +89,11 @@ vim.keymap.set("n", "k", function()
 		return "k"
 	end
 end, { expr = true, noremap = true })
+
+-- Make up, down navigate through soft wrapped lines in 'insert' mode
+vim.keymap.set("i", "<Up>", "<C-o>gk")
+vim.keymap.set("i", "<Down>", "<C-o>gj")
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
