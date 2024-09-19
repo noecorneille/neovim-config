@@ -183,6 +183,23 @@ return {
 			{ delimiters = "<>" }
 		)
 	),
+
+	s(
+		{ trig = "\\fig", snippetType = "autosnippet" },
+		fmta(
+			[[
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{<>}
+    \caption{<>}
+    \label{fig:<>}
+\end{figure}
+	]],
+			{ i(1), i(2), i(3) },
+			{ delimiters = "<>" }
+		)
+	),
+
 	-- "Autocorrect" type stuff
 	s({ trig = "\\ff", dscr = "Expands 'ff' into '\frac{}{}'", snippetType = "autosnippet" }, {
 		t("\\frac{"),
