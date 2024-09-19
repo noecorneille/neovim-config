@@ -75,6 +75,8 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
 -- Make j,k navigate through soft wrapped lines
+
+-- normal mode
 vim.keymap.set("n", "j", function()
 	if vim.v.count == 0 then
 		return "gj"
@@ -83,6 +85,22 @@ vim.keymap.set("n", "j", function()
 	end
 end, { expr = true, noremap = true })
 vim.keymap.set("n", "k", function()
+	if vim.v.count == 0 then
+		return "gk"
+	else
+		return "k"
+	end
+end, { expr = true, noremap = true })
+
+-- visual mode
+vim.keymap.set("v", "j", function()
+	if vim.v.count == 0 then
+		return "gj"
+	else
+		return "j"
+	end
+end, { expr = true, noremap = true })
+vim.keymap.set("v", "k", function()
 	if vim.v.count == 0 then
 		return "gk"
 	else
