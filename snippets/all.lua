@@ -128,7 +128,7 @@ return {
 	),
 
 	s(
-		{ trig = "\\lemma", snippetType = "autosnippet" },
+		{ trig = "\\lma", snippetType = "autosnippet" },
 		fmta(
 			[[
       \begin{lemma}
@@ -142,7 +142,7 @@ return {
 		)
 	),
 	s(
-		{ trig = "\\theorem", snippetType = "autosnippet" },
+		{ trig = "\\thm", snippetType = "autosnippet" },
 		fmta(
 			[[
       \begin{theorem}
@@ -185,6 +185,35 @@ return {
 	),
 
 	s(
+		{ trig = "\\cor", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \begin{cor}
+          <>
+      \end{cor}
+    ]],
+			{
+				i(1),
+			},
+			{ delimiters = "<>" }
+		)
+	),
+
+	s(
+		{ trig = "\\itemize", snippetType = "autosnippet" },
+		fmta(
+			[[
+      \begin{itemize}
+          \item <>
+      \end{itemize}
+    ]],
+			{
+				i(1),
+			},
+			{ delimiters = "<>" }
+		)
+	),
+	s(
 		{ trig = "\\fig", snippetType = "autosnippet" },
 		fmta(
 			[[
@@ -218,7 +247,6 @@ return {
 	s({ trig = "-->", snippetType = "autosnippet" }, { t("\\xrightarrow{"), i(1), t("}") }),
 	s({ trig = "--<", snippetType = "autosnippet" }, { t("\\xleftarrow{"), i(1), t("}") }),
 
-	s({ trig = "->", snippetType = "autosnippet" }, { t("\\to") }),
 	s({ trig = "-<", snippetType = "autosnippet" }, { t("\\leftarrow") }),
 
 	s({ trig = "\\lr(", snippetType = "autosnippet" }, { t("\\left("), i(1), t("\\right)") }),
@@ -227,4 +255,6 @@ return {
 	s({ trig = "\\lr<", snippetType = "autosnippet" }, { t("\\left\\langle"), i(1), t("\\right\\rangle") }),
 
 	s({ trig = "...", snippetType = "autosnippet" }, { t("\\ldots") }),
+
+	s({ trig = "\\1/2", snippetType = "autosnippet" }, { t("\\frac12") }),
 }
