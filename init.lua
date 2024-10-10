@@ -945,11 +945,11 @@ require("lazy").setup({
 })
 
 -- Commands run on startup
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd("CHADopen")
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--	callback = function()
+--		vim.cmd("CHADopen")
+--	end,
+--})
 
 vim.keymap.set("n", "<C-LeftMouse>", "<cmd>call SVED_Sync()<CR>")
 vim.keymap.set("n", "<C-s>", "<cmd>call SVED_Sync()<CR>")
