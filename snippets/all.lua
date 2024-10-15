@@ -217,7 +217,7 @@ return {
 		{ trig = "\\fig", snippetType = "autosnippet" },
 		fmta(
 			[[
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{<>}
     \caption{<>}
