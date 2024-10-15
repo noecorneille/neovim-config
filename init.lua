@@ -74,6 +74,10 @@ vim.opt.scrolloff = 15
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
+-- Set keyboard shortcuts for vimrc and snippets
+vim.keymap.set("n", "<Leader>ev", "<Cmd>vsplit $MYVIMRC<Cr>")
+vim.keymap.set("n", "<Leader>es", "<Cmd>vsplit ~/.config/nvim/snippets/all.lua<Cr>")
+
 -- Make j,k navigate through soft wrapped lines
 
 -- normal mode
