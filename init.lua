@@ -31,6 +31,27 @@ vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
 
+local ignore_filetypes_list = {
+	"venv",
+	"__pycache__",
+	"%.xlsx",
+	"%.jpg",
+	"%.png",
+	"%.webp",
+	"%.pdf",
+	"%.odt",
+	"%.ico",
+	"%.aux",
+	"%.bbl",
+	"%.blg",
+	"%.out",
+	"%.toc",
+	"%.synctex.gz",
+	"%.fls",
+	"%.txss2",
+	"%.fdb_latexmk",
+}
+
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -350,12 +371,12 @@ require("lazy").setup({
 			require("telescope").setup({
 				-- You can put your default mappings / updates / etc. in here
 				--  All the info you're looking for is in `:help telescope.setup()`
-				--
-				-- defaults = {
-				--   mappings = {
-				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-				--   },
-				-- },
+				defaults = {
+					--   mappings = {
+					--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+					file_ignore_patterns = ignore_filetypes_list,
+					--   },
+				},
 				-- pickers = {}
 				extensions = {
 					["ui-select"] = {
