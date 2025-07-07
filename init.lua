@@ -970,6 +970,13 @@ require("lazy").setup({
 })
 
 -- Commands run on startup
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.cmd("set spell")
+	end,
+})
+
 -- vim.api.nvim_create_autocmd("VimEnter", {
 --	callback = function()
 --		vim.cmd("CHADopen")
